@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sriram Stories | Cinematic Universe</title>
+    <title>Sriram Stories | Studio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Oswald:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="logo">SRIRAM STORIES</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#universe">The Universe</a></li>
-            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('review')">Review</a></li>
         </ul>
     </nav>
 
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <h1>Beyond the Script</h1>
-            <p>Exploring the Pancha Thathva Universe and Tollywood Cinema.</p>
-            <button class="cta-btn" onclick="scrollToUniverse()">Explore Lore</button>
+    <section id="home-page" class="page active">
+        <div class="hero">
+            <h1>Sriram Stories</h1>
+            <p>Your cinematic universe starts here.</p>
+            <button class="main-btn" onclick="openStudio()">Create New Story</button>
         </div>
-    </header>
-
-    <section class="universe-section" id="universe">
-        <h2 class="section-title">Active Projects</h2>
-        <div class="grid-container" id="project-grid">
-            </div>
     </section>
 
-    <div id="story-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title">Story Title</h2>
-            <p id="modal-description">Detailed description goes here...</p>
+    <section id="review-page" class="page">
+        <div class="container">
+            <h2>Script Review</h2>
+            <p>Upload your draft for professional analysis.</p>
+            <div class="upload-box">
+                <input type="file" id="file-upload" hidden>
+                <button class="upload-btn" onclick="document.getElementById('file-upload').click()">Upload File to Review</button>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="studio-page" class="page studio">
+        <div class="studio-toolbar">
+            <button onclick="document.execCommand('bold')"><b>B</b></button>
+            <button onclick="document.execCommand('italic')"><i>I</i></button>
+            <button onclick="formatHeader()">H1</button>
+            <button onclick="triggerImage()">Attach Image</button>
+            <input type="file" id="img-input" accept="image/*" hidden onchange="insertImage(this)">
+            <button class="save-btn" onclick="showPage('home')">Exit & Save</button>
+        </div>
+        <div class="editor-container">
+            <div id="editor" contenteditable="true" placeholder="Start your story..."></div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
