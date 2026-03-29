@@ -1,45 +1,42 @@
 :root {
-    --dark: #0f0f0f;
+    --dark-bg: #0a0a0a;
     --accent: #ffcc00;
-    --studio-bg: #ffffff;
+    --studio-white: #ffffff;
+    --border-color: #e0e0e0;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; overflow-x: hidden; }
 
-/* Navigation */
-.navbar { display: flex; justify-content: space-between; padding: 20px 5%; background: rgba(0,0,0,0.9); border-bottom: 1px solid #333; }
-.logo { font-family: 'Oswald'; color: var(--accent); font-size: 1.5rem; letter-spacing: 2px; }
-.nav-links { display: flex; list-style: none; gap: 30px; }
-.nav-links a { color: white; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
+body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: white; overflow-x: hidden; }
 
-/* Page Control */
-.page { display: none; height: 100vh; padding-top: 80px; }
+/* Global Navigation */
+.navbar { display: flex; justify-content: space-between; padding: 20px 5%; align-items: center; border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 100; background: var(--dark-bg); }
+.logo { font-family: 'Oswald'; color: var(--accent); font-size: 1.4rem; letter-spacing: 2px; }
+.nav-links { display: flex; gap: 20px; list-style: none; }
+.nav-links button { background: none; border: none; color: white; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; }
+
+/* Page States */
+.page { display: none; min-height: 100vh; }
 .page.active { display: block; }
 
-/* Home & Hero */
-.hero { text-align: center; margin-top: 15vh; }
-.hero h1 { font-family: 'Oswald'; font-size: 5rem; text-transform: uppercase; }
-.main-btn { margin-top: 30px; padding: 15px 40px; background: var(--accent); border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
+/* Hero Section */
+.hero { text-align: center; padding-top: 20vh; }
+.hero h1 { font-family: 'Oswald'; font-size: 4.5rem; letter-spacing: -2px; }
+.main-btn { margin-top: 30px; padding: 15px 40px; background: var(--accent); border: none; font-weight: bold; cursor: pointer; border-radius: 2px; transition: 0.3s; }
+.main-btn:hover { background: #e6b800; transform: scale(1.05); }
 
-/* Review Page */
-.container { text-align: center; max-width: 600px; margin: 100px auto; }
-.upload-box { margin-top: 40px; border: 2px dashed #444; padding: 50px; border-radius: 10px; }
-.upload-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 10px 20px; cursor: pointer; }
+/* Review Styles */
+.review-container { text-align: center; max-width: 800px; margin: 100px auto; }
+.upload-area { border: 2px dashed #333; padding: 60px; margin-top: 30px; border-radius: 8px; }
+.secondary-btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 12px 25px; cursor: pointer; }
 
-/* STUDIO PAGE (The White Interface) */
-.studio { background: var(--studio-bg); color: black; padding-top: 0; }
-.studio-toolbar { 
-    background: #f0f0f0; 
-    padding: 10px; 
-    display: flex; 
-    gap: 15px; 
-    border-bottom: 1px solid #ddd;
-    position: sticky;
-    top: 0;
-}
-.studio-toolbar button { padding: 5px 15px; cursor: pointer; border: 1px solid #ccc; background: white; }
-.editor-container { padding: 50px 20%; height: calc(100vh - 50px); overflow-y: auto; }
-#editor { outline: none; font-size: 1.2rem; min-height: 500px; line-height: 1.8; color: #333; }
-#editor:empty:before { content: attr(placeholder); color: #aaa; }
-.save-btn { margin-left: auto; background: var(--dark) !important; color: white !important; }
+/* THE STUDIO (White Page) */
+.studio { background: var(--studio-white); color: #1a1a1a; padding: 0; }
+.studio-header { display: flex; justify-content: space-between; padding: 10px 5%; background: #f9f9f9; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; }
+.toolbar { display: flex; gap: 10px; }
+.toolbar button { width: 40px; height: 40px; border: 1px solid #ddd; background: white; cursor: pointer; border-radius: 4px; }
+.toolbar button:hover { background: #eee; }
+.exit-btn { background: #000; color: white; border: none; padding: 0 20px; cursor: pointer; border-radius: 4px; }
+.editor-wrapper { padding: 60px 20%; }
+#editor { outline: none; font-size: 1.25rem; line-height: 1.8; min-height: 70vh; }
+#editor:empty:before { content: attr(placeholder); color: #999; }
