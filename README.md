@@ -1,27 +1,13 @@
-# SRIRAM STORIES
+# Sriram Stories | Studio Edition
 
-A professional, high-performance web portal for showcasing cinematic scripts, fictional universes, and creative narratives. Designed for clarity, responsiveness, and a premium user experience.
+Professional minimalist portal for story creation and script review.
 
-## 🚀 Features
-- **Cinematic Dark Theme:** Optimized for long-form reading and visual storytelling.
-- **Dynamic Content Engine:** Project cards are generated via JavaScript for easy updates.
-- **Interactive Modals:** Detailed story breakdowns without leaving the main page.
-- **Mobile First:** Fully responsive layout for all screen sizes.
+## 🛠 Features
+- **Empty Home:** No projects displayed for a clean look.
+- **Writing Studio:** A dedicated white workspace with rich-text formatting (Bold, Italic, Headers).
+- **Media Support:** Ability to attach images directly into the story flow.
+- **File Review:** Dedicated upload portal for script analysis.
 
-## 📁 File Structure
-- `index.html`: Core structure and navigation.
-- `style.css`: Professional UI/UX styles and animations.
-- `script.js`: Logical engine for rendering story data.
-- `LICENSE`: Open-source MIT distribution rights.
-
-## 🛠️ Usage
-To add your own stories:
-1. Open `script.js`.
-2. Locate the `projects` array.
-3. Add your title, short summary, and full details within the empty strings:
-   ```javascript
-   {
-       title: "Your Story Name",
-       short: "One-line hook.",
-       details: "Full script or plot breakdown."
-   }
+## 📁 Setup
+1. Push `index.html`, `style.css`, and `script.js` to your GitHub.
+2. Enable **GitHub Pages** in settings.
