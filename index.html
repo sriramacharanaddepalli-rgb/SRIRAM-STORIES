@@ -3,50 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sriram Stories | Studio</title>
+    <title>Sriram Stories | Professional Studio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body onload="init()">
 
-    <nav class="navbar">
+    <nav class="navbar" id="main-nav">
         <div class="logo">SRIRAM STORIES</div>
         <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')">Home</a></li>
-            <li><a href="#" onclick="showPage('review')">Review</a></li>
+            <li><button onclick="showPage('home')">Home</button></li>
+            <li><button onclick="showPage('review')">Review</button></li>
         </ul>
     </nav>
 
-    <section id="home-page" class="page active">
+    <main id="home-page" class="page active">
         <div class="hero">
             <h1>Sriram Stories</h1>
             <p>Your cinematic universe starts here.</p>
-            <button class="main-btn" onclick="openStudio()">Create New Story</button>
+            <button class="main-btn" onclick="showPage('studio')">Create New Story</button>
         </div>
-    </section>
+    </main>
 
     <section id="review-page" class="page">
-        <div class="container">
-            <h2>Script Review</h2>
-            <p>Upload your draft for professional analysis.</p>
-            <div class="upload-box">
-                <input type="file" id="file-upload" hidden>
-                <button class="upload-btn" onclick="document.getElementById('file-upload').click()">Upload File to Review</button>
+        <div class="review-container">
+            <h2>Script Review Portal</h2>
+            <p>Upload your story or script for analysis.</p>
+            <div class="upload-area">
+                <input type="file" id="review-upload" hidden onchange="handleFileUpload(this)">
+                <button class="secondary-btn" onclick="document.getElementById('review-upload').click()">Upload File to Review</button>
+                <p id="file-status" style="margin-top: 15px; color: #ffcc00;"></p>
             </div>
         </div>
     </section>
 
     <section id="studio-page" class="page studio">
-        <div class="studio-toolbar">
-            <button onclick="document.execCommand('bold')"><b>B</b></button>
-            <button onclick="document.execCommand('italic')"><i>I</i></button>
-            <button onclick="formatHeader()">H1</button>
-            <button onclick="triggerImage()">Attach Image</button>
-            <input type="file" id="img-input" accept="image/*" hidden onchange="insertImage(this)">
-            <button class="save-btn" onclick="showPage('home')">Exit & Save</button>
+        <div class="studio-header">
+            <div class="toolbar">
+                <button title="Bold" onclick="execCmd('bold')"><b>B</b></button>
+                <button title="Italic" onclick="execCmd('italic')"><i>I</i></button>
+                <button title="Heading" onclick="execCmd('formatBlock', 'h1')">H1</button>
+                <button title="Attach Image" onclick="triggerImgInput()">Image</button>
+                <input type="file" id="studio-img-input" hidden accept="image/*" onchange="insertImage(this)">
+            </div>
+            <button class="exit-btn" onclick="showPage('home')">Save & Exit</button>
         </div>
-        <div class="editor-container">
-            <div id="editor" contenteditable="true" placeholder="Start your story..."></div>
+        <div class="editor-wrapper">
+            <div id="editor" contenteditable="true" placeholder="Begin your script here..."></div>
         </div>
     </section>
 
